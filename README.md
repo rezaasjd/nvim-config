@@ -1,1 +1,1 @@
-# nvim-config
+Neo vim configurations and plugins.
