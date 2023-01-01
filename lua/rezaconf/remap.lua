@@ -5,8 +5,8 @@ vim.keymap.set("n", "<C-o>", vim.cmd.NERDTreeToggle)
 
 local options = { noremap = true }
 vim.keymap.set("i", "jk", "<Esc>", options)
-vim.keymap.set("n", "<leader>q", ":wq<CR>", options)
-vim.keymap.set("n", "<leader>w", ":w<CR>", options)
+vim.keymap.set("n", "<C-q>", ":wq<CR>", options)
+vim.keymap.set("n", "<C-w>", ":w<CR>", options)
 vim.keymap.set("n", "<C-h>", "<C-W>h", options)
 vim.keymap.set("n", "<C-l>", "<C-W>l", options)
 
