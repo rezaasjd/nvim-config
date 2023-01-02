@@ -25,3 +25,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<C-e>", "$")
 vim.keymap.set("n", "<C-a>", "^")
 
+-- terminal mode
+vim.keymap.set("n", "<C-t>", ":vnew term://zsh<Enter>")
+vim.keymap.set("t", "jk", [[<C-\><C-n>]], { noremap = true })
+
