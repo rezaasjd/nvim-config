@@ -24,6 +24,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- greatest remaps ever
 vim.keymap.set("n", "<C-e>", "$")
 vim.keymap.set("n", "<C-a>", "^")
+vim.keymap.set("n", "<C-/>", "*")
 
 -- terminal mode
 vim.keymap.set("n", "<C-t>", ":vnew term://zsh<Enter>")
