@@ -43,6 +43,9 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- anyjump
+  use ('pechorin/any-jump.vim')
+
   use ('preservim/nerdtree')
   -- Lua
   use {
