@@ -4,6 +4,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- scala metals
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     -- or                            , branch = '0.1.x',
@@ -16,10 +17,29 @@ return require('packer').startup(function(use)
       vim.cmd('colorscheme rose-pine')
     end
   })
+
+  use({
+    "hrsh7th/nvim-cmp",
+    requires = {
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-vsnip" },
+      { "hrsh7th/vim-vsnip" },
+    },
+  })
+
+  use({
+    "scalameta/nvim-metals",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "mfussenegger/nvim-dap",
+    },
+  })
+
   use ('ThePrimeagen/harpoon')
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use ('mbbill/undotree')
   use ('tpope/vim-fugitive')
+  use ('nvim-lua/plenary.nvim')
 
   use {
     'VonHeikemen/lsp-zero.nvim',
