@@ -4,6 +4,12 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- LaTex
+  use 'lervag/vimtex'
+
+  -- github copilot
+  use 'github/copilot.vim'
+
   -- scala metals
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -26,6 +32,9 @@ return require('packer').startup(function(use)
       { "hrsh7th/vim-vsnip" },
     },
   })
+  use ('SirVer/ultisnips')
+
+  use ('honza/vim-snippets')
 
   use({
     "scalameta/nvim-metals",
