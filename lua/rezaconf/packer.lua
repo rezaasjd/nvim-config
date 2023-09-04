@@ -1,4 +1,13 @@
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
+
+-- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
+
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
@@ -12,10 +21,12 @@ return require('packer').startup(function(use)
 
   -- scala metals
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    -- or                            , branch = '0.1.x',
+    'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  --use ('christoomey/vim-tmux-navigator')
+
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
@@ -36,13 +47,6 @@ return require('packer').startup(function(use)
 
   use ('honza/vim-snippets')
 
-  use({
-    "scalameta/nvim-metals",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "mfussenegger/nvim-dap",
-    },
-  })
 
   use ('ThePrimeagen/harpoon')
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})

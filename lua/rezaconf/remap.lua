@@ -5,14 +5,15 @@ vim.keymap.set("n", "<C-o>", vim.cmd.NERDTreeToggle)
 
 local options = { noremap = true }
 vim.keymap.set("i", "jk", "<Esc>", options)
+vim.keymap.set("i", "<C-c>", "<Esc>", options)
 vim.keymap.set("n", "<C-q>", ":wq<CR>", options)
 vim.keymap.set("n", "<C-w>", ":w<CR>", options)
 vim.keymap.set("n", "<C-h>", "<C-W>h", options)
 vim.keymap.set("n", "<C-l>", "<C-W>l", options)
 
 
-vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
+--vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+--vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
@@ -29,4 +30,7 @@ vim.keymap.set("n", "<C-/>", "*")
 -- terminal mode
 vim.keymap.set("n", "<C-t>", ":vnew term://zsh<Enter>")
 vim.keymap.set("t", "jk", [[<C-\><C-n>]], { noremap = true })
+
+-- this is code action for fast fixes
+vim.keymap.set("n", "<C-;>", ":lua vim.lsp.buf.code_action()<CR>")
 
