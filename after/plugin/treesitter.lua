@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
   ensure_installed = { "cpp", "scala", "java", "python", "c", "lua", "rust" },
 
@@ -15,4 +15,9 @@ require'nvim-treesitter.configs'.setup {
 
     additional_vim_regex_highlighting = false,
   },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil
+  }
 }

@@ -5,14 +5,15 @@ vim.keymap.set("n", "<C-o>", vim.cmd.NERDTreeToggle)
 
 local options = { noremap = true }
 vim.keymap.set("i", "jk", "<Esc>", options)
+vim.keymap.set("i", "<C-c>", "<Esc>", options)
 vim.keymap.set("n", "<C-q>", ":wq<CR>", options)
 vim.keymap.set("n", "<C-w>", ":w<CR>", options)
 vim.keymap.set("n", "<C-h>", "<C-W>h", options)
 vim.keymap.set("n", "<C-l>", "<C-W>l", options)
 
 
-vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
+--vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+--vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
@@ -46,4 +47,3 @@ vim.keymap.set("n", "<leader>n", ":NERDTreeRefreshRoot<CR>")
 
 -- equalize
 vim.keymap.set("n", '<leader>=', "<C-w>=")
-
