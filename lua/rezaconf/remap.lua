@@ -24,9 +24,26 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- greatest remaps ever
 vim.keymap.set("n", "<C-e>", "$")
 vim.keymap.set("n", "<C-a>", "^")
-vim.keymap.set("n", "<C-/>", "*")
+vim.keymap.set("n", "<M-f>", "*")
+vim.keymap.set("n", "<C-i>", "<C-w><C-f>")
 
 -- terminal mode
-vim.keymap.set("n", "<C-t>", ":vnew term://zsh<Enter>")
+vim.keymap.set("n", "<C-z>", ":vnew term://tcsh<Enter>")
+vim.keymap.set("n", "<C-t>", "<C-z>", options)
 vim.keymap.set("t", "jk", [[<C-\><C-n>]], { noremap = true })
+
+-- autocomplete from buffer
+vim.keymap.set("i", "<C-f>", "<C-x><C-n>")
+
+
+-- copycat
+vim.keymap.set("n", "<C-c>", '"*y')
+vim.keymap.set("n", "<C-p>", '"*p')
+
+-- nerdtree refresh
+vim.keymap.set("n", "<leader>n", ":NERDTreeRefreshRoot<CR>")
+
+
+-- equalize
+vim.keymap.set("n", '<leader>=', "<C-w>=")
 

@@ -29,6 +29,22 @@ local map = vim.keymap.set
 ----------------------------------
 cmd([[packadd packer.nvim]])
 require("packer").startup(function(use)
+  use({ "wbthomason/packer.nvim", opt = true })
+
+  use({
+    "hrsh7th/nvim-cmp",
+    requires = {
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-vsnip" },
+      { "hrsh7th/vim-vsnip" },
+    },
+  })
+  use({
+    "scalameta/nvim-metals",
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+  })
 end)
 
 ----------------------------------
@@ -47,7 +63,7 @@ map("n", "gws", vim.lsp.buf.workspace_symbol)
 map("n", "<leader>cl", vim.lsp.codelens.run)
 map("n", "<leader>sh", vim.lsp.buf.signature_help)
 map("n", "<leader>rn", vim.lsp.buf.rename)
-map("n", "<leader>f", vim.lsp.buf.formatting)
+map("n", "<leader>f", vim.lsp.buf.format)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
 
 map("n", "<leader>ws", function()
@@ -80,33 +96,6 @@ end)
 
 -- Example mappings for usage with nvim-dap. If you don't use that, you can
 -- skip these
-map("n", "<leader>dc", function()
-  require("dap").continue()
-end)
-
-map("n", "<leader>dr", function()
-  require("dap").repl.toggle()
-end)
-
-map("n", "<leader>dK", function()
-  require("dap.ui.widgets").hover()
-end)
-
-map("n", "<leader>dt", function()
-  require("dap").toggle_breakpoint()
-end)
-
-map("n", "<leader>dso", function()
-  require("dap").step_over()
-end)
-
-map("n", "<leader>dsi", function()
-  require("dap").step_into()
-end)
-
-map("n", "<leader>dl", function()
-  require("dap").run_last()
-end)
 
 -- completion related settings
 -- This is similiar to what I use
@@ -167,32 +156,6 @@ metals_config.settings = {
 -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
 metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- Debug settings if you're using nvim-dap
-local dap = require("dap")
-
-dap.configurations.scala = {
-  {
-    type = "scala",
-    request = "launch",
-    name = "RunOrTest",
-    metals = {
-      runType = "runOrTestFile",
-      --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
-    },
-  },
-  {
-    type = "scala",
-    request = "launch",
-    name = "Test Target",
-    metals = {
-      runType = "testTarget",
-    },
-  },
-}
-
-metals_config.on_attach = function(client, bufnr)
-  require("metals").setup_dap()
-end
 
 -- Autocmd that will actually be in charging of starting the whole thing
 local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })

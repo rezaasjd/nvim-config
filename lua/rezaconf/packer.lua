@@ -2,15 +2,20 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use {'wbthomason/packer.nvim', branch = 'master'}
 
-  -- LaTex
-  use 'lervag/vimtex'
+  -- vim visual multi
+  use 'mg979/vim-visual-multi'
 
   -- github copilot
   use 'github/copilot.vim'
-
+ 
+  --- planery for metals
+  use "nvim-lua/plenary.nvim"
   -- scala metals
+  use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+
+  -- telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     -- or                            , branch = '0.1.x',
@@ -36,19 +41,11 @@ return require('packer').startup(function(use)
 
   use ('honza/vim-snippets')
 
-  use({
-    "scalameta/nvim-metals",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "mfussenegger/nvim-dap",
-    },
-  })
 
   use ('ThePrimeagen/harpoon')
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use ('mbbill/undotree')
   use ('tpope/vim-fugitive')
-  use ('nvim-lua/plenary.nvim')
 
   use {
     'VonHeikemen/lsp-zero.nvim',
