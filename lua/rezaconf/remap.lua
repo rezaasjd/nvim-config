@@ -7,7 +7,6 @@ local options = { noremap = true }
 vim.keymap.set("i", "jk", "<Esc>", options)
 vim.keymap.set("i", "<C-c>", "<Esc>", options)
 vim.keymap.set("n", "<C-q>", ":wq<CR>", options)
-vim.keymap.set("n", "<C-w>", ":w<CR>", options)
 vim.keymap.set("n", "<C-h>", "<C-W>h", options)
 vim.keymap.set("n", "<C-l>", "<C-W>l", options)
 
@@ -25,7 +24,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- greatest remaps ever
 vim.keymap.set("n", "<C-e>", "$")
 vim.keymap.set("n", "<C-a>", "^")
-vim.keymap.set("n", "<M-f>", "*")
+vim.keymap.set("n", "<C-w>", "*")
 vim.keymap.set("n", "<C-i>", "<C-w><C-f>")
 
 -- terminal mode
