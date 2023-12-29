@@ -16,13 +16,20 @@ return require('packer').startup(function(use)
   -- vim visual multi
   use 'mg979/vim-visual-multi'
 
-  -- github copilot
-  use 'github/copilot.vim'
- 
   --- planery for metals
   use "nvim-lua/plenary.nvim"
   -- scala metals
   use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+
+  -- rustup
+	use 'rust-lang/rust.vim'
+
+  use {'autozimu/LanguageClient-neovim',
+    branch = 'next',
+    run = 'bash install.sh'
+  }
+
+  use {'neoclide/coc.nvim', branch = 'release'}
 
   -- telescope
   use {
