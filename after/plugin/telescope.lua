@@ -8,6 +8,9 @@ require('telescope').setup({
         ["<C-f>"] = actions.close,
         ["<C-u>"] = false,
       },
+      n = {
+        ["<C-f>"] = actions.close,
+      }
     },
     layout_strategy = 'bottom_pane',
   },
