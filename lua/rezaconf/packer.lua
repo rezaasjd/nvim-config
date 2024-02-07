@@ -40,17 +40,7 @@ return require('packer').startup(function(use)
     end
   })
 
-  use({
-    "hrsh7th/nvim-cmp",
-    requires = {
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-vsnip" },
-      { "hrsh7th/vim-vsnip" },
-    },
-  })
-  use ('SirVer/ultisnips')
-
-  use ('honza/vim-snippets')
+  use ('navarasu/onedark.nvim')
 
 
   use ('ThePrimeagen/harpoon')

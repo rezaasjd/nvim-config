@@ -15,6 +15,7 @@ vim.keymap.set("n", "<C-l>", "<C-W>l", options)
 --vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
