@@ -1,18 +1,22 @@
+local actions = require('telescope.actions')
+local builtin = require('telescope.builtin')
+
 require('telescope').setup({
   defaults = {
-    layout_strategy = 'bottom_pane',
-    layout_config = {
-      anchor = "S",
-      vertical = { width = 0.4, height = 0.9 }
-      -- other layout configuration here
+    mappings = {
+      i = {
+        ["<C-f>"] = actions.close,
+        ["<C-u>"] = false,
+      },
     },
-    -- other defaults configuration here
+    layout_strategy = 'bottom_pane',
   },
-  -- other configuration values here
+  pickers = {
+    find_files = {
+      find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+      --find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+    },
+  },
 })
-local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-f>', builtin.find_files, {})
-vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
-vim.keymap.set('n', '<C-s>', function()
-	builtin.grep_string( { search = vim.fn.input("Grep > ") });
-end)
+vim.keymap.set('n', '<C-s>', builtin.live_grep, {})

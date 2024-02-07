@@ -16,21 +16,14 @@ return require('packer').startup(function(use)
   -- vim visual multi
   use 'mg979/vim-visual-multi'
 
-  -- github copilot
-  use 'github/copilot.vim'
- 
-  --- planery for metals
-  use "nvim-lua/plenary.nvim"
-  -- scala metals
-  use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+  -- rustup
+	use 'rust-lang/rust.vim'
 
   -- telescope
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-
-  --use ('christoomey/vim-tmux-navigator')
 
   use({
     'rose-pine/neovim',
@@ -40,12 +33,22 @@ return require('packer').startup(function(use)
     end
   })
 
-  use ('navarasu/onedark.nvim')
+  use({
+    "hrsh7th/nvim-cmp",
+    requires = {
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-vsnip" },
+      { "hrsh7th/vim-vsnip" },
+    },
+  })
 
 
   use ('ThePrimeagen/harpoon')
+
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+
   use ('mbbill/undotree')
+
   use ('tpope/vim-fugitive')
 
   use {
