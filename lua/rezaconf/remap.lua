@@ -11,8 +11,8 @@ vim.keymap.set("n", "<C-h>", "<C-W>h", options)
 vim.keymap.set("n", "<C-l>", "<C-W>l", options)
 
 
-vim.keymap.set("v", "<J>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<K>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<leader>j", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<leader>k", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
@@ -34,7 +34,6 @@ vim.keymap.set("n", "<leader>f", "<cmd>slient !tmux neww tmux-sessionizer<CR>")
 -- greatest remaps ever
 vim.keymap.set("n", "<C-e>", "$")
 vim.keymap.set("n", "<C-a>", "^")
-vim.keymap.set("n", "<C-w>", "*")
 vim.keymap.set("n", "<C-i>", "<C-w><C-f>")
 
 -- terminal mode
@@ -52,7 +51,6 @@ vim.keymap.set("n", "<C-p>", '"*p')
 
 -- nerdtree refresh
 vim.keymap.set("n", "<leader>n", ":NERDTreeRefreshRoot<CR>")
-
 
 -- equalize
 vim.keymap.set("n", '<leader>=', "<C-w>=")

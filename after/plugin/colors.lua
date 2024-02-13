@@ -10,5 +10,5 @@ require('onedark').setup{
 
 require('onedark').load()
 
-ColorMyPencils("onedark")
+ColorMyPencils('onedark')
 
