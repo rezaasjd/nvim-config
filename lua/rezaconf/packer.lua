@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
   use 'mg979/vim-visual-multi'
 
   -- rustup
-	use 'rust-lang/rust.vim'
+  use 'rust-lang/rust.vim'
 
   -- telescope
   use {
