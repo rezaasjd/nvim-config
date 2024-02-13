@@ -33,7 +33,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "]d", function() vim.lsp.buf.goto_prev() end, opts)
   vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.refrences() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("n", "<leader>h", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
