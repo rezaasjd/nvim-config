@@ -16,9 +16,6 @@ return require('packer').startup(function(use)
   -- vim visual multi
   use 'mg979/vim-visual-multi'
 
-  --- planery for metals
-  use "nvim-lua/plenary.nvim"
-
   -- rustup
 	use 'rust-lang/rust.vim'
 

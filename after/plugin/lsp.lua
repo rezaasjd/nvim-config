@@ -21,7 +21,7 @@ cmp.setup({
   })
 })
 
-lsp.setup_servers({'rust_analyzer', 'clangd'})
+lsp.setup_servers({'rust_analyzer', 'clangd', 'svls'})
 
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
