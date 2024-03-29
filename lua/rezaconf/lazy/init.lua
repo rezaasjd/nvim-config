@@ -56,14 +56,5 @@ return {
       vim.cmd('colorscheme rose-pine')
     end
   },
-  {
-    'folke/trouble.nvim',
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require('trouble').setup({
-        icons = false,
-      })
-    end
-  },
 
 }
