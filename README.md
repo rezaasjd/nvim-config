@@ -2,8 +2,8 @@
 [Bob by MordechaiHadad](https://github.com/MordechaiHadad/bob?tab=readme-ov-file#-installation)
 
 ## To install Neovim package manager
-[Packer by wbthomason](https://github.com/wbthomason/packer.nvim)
+[Lazy by foke](https://github.com/folke/lazy.nvim)
 
 ## Rest of plugins
-Follow the pointers to plugins @ "./lua/rezaconf/packer.lua"
+Follow the pointers to plugins @ "./lua/rezaconf/lazy
 

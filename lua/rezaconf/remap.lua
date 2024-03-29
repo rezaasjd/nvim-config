@@ -10,9 +10,8 @@ vim.keymap.set("n", "<C-q>", ":wq<CR>", options)
 vim.keymap.set("n", "<C-h>", "<C-W>h", options)
 vim.keymap.set("n", "<C-l>", "<C-W>l", options)
 
-
-vim.keymap.set("v", "<leader>j", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<leader>k", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
@@ -56,4 +55,6 @@ vim.keymap.set("n", "<leader>n", ":NERDTreeRefreshRoot<CR>")
 vim.keymap.set("n", '<leader>=', "<C-w>=")
 
 
+--local builtin = require('telescope.builtin')
+--vim.keymap.set('n', '<C-f>', builtin.find_files, {})
 
