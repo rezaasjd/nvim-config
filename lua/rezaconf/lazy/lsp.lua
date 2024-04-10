@@ -26,12 +26,13 @@ return {
       require('mason-lspconfig').setup({
         ensure_installed = {
           'lua_ls',
-          'rust_analyzer',
-          'clangd'
+          'rust_analyzer'
         },
         handlers = {
           function(server)
-            require('lspconfig')[server].setup{}
+            if server ~= "hdl_checker" then
+              require('lspconfig')[server].setup{}
+            end
           end,
 
           ["lua_ls"] = function()
@@ -49,6 +50,20 @@ return {
           end,
         }
       })
+      require('lspconfig.configs').hdl_checker = {
+        default_config = {
+          cmd = {"hdl_checker", "--lsp"},
+          filetype = {"vhdl", "verilog", "systemverilog"},
+          root_dir = function(fname)
+            local util = require('lspconfig').util
+            return util.root_pattern('.hdl_checker.config')(fname) or
+              util.find_git_ancestor(fname) or
+              util.path.dirname(fname)
+          end,
+          settings = {},
+        }
+      }
+      require('lspconfig').hdl_checker.setup{}
       local cmp_select = {behavior = cmp.SelectBehavior.Select}
       cmp.setup({
         snippet = {
