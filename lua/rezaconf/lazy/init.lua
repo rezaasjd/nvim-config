@@ -1,27 +1,27 @@
 return {
   {
     'nvim-lua/plenary.nvim',
-    name = "plenary"
+    name = 'plenary'
   },
 
   {
     'mbbill/undotree',
-    config = function() 
-      vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+    config = function()
+      vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
     end
   },
 
   {
     'tpope/vim-fugitive',
-    config = function() 
-      vim.keymap.set("n", "<leader>g", vim.cmd.Git);
+    config = function()
+      vim.keymap.set('n', '<leader>g', vim.cmd.Git);
     end
   },
 
   {
     'folke/zen-mode.nvim',
-    config = function() 
-      require("zen-mode").setup{
+    config = function()
+      require('zen-mode').setup{
         window = {
           width = 130,
           options = {
@@ -30,8 +30,8 @@ return {
           }
         }
       }
-      vim.keymap.set("n", "<leader>z", function()
-        require("zen-mode").toggle()
+      vim.keymap.set('n', '<leader>z', function()
+        require('zen-mode').toggle()
         vim.wo.wrap = false
       end)
     end
@@ -39,7 +39,7 @@ return {
 
   {
     'windwp/nvim-autopairs',
-    event = "InsertEnter",
+    event = 'InsertEnter',
     config = true
   },
 

@@ -17,7 +17,7 @@ return {
       local cmp = require('cmp')
       local cmp_lsp = require('cmp_nvim_lsp')
       local capabilities = vim.tbl_deep_extend(
-            "force",
+            'force',
             {},
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
@@ -34,14 +34,14 @@ return {
             require('lspconfig')[server].setup{}
           end,
 
-          ["lua_ls"] = function()
-            local lspconfig = require("lspconfig")
+          ['lua_ls'] = function()
+            local lspconfig = require('lspconfig')
             lspconfig.lua_ls.setup{
               capabilities = capabilities,
               settings = {
                 Lua = {
                   diagnostics = {
-                    globals = {"vim", "it", "describe", "before_each", "after_each"}
+                    globals = {'vim', 'it', 'describe', 'before_each', 'after_each'}
                   }
                 }
               }
@@ -72,11 +72,11 @@ return {
       vim.diagnostic.config({
         float = {
           focusable = false,
-          style = "minimal",
-          border = "rounded",
-          source = "always",
-          header = "",
-          prefix = "",
+          style = 'minimal',
+          border = 'rounded',
+          source = 'always',
+          header = '',
+          prefix = '',
         },
       })
     end

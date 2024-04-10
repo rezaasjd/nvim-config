@@ -1,4 +1,4 @@
-vim.opt.guicursor = ""
+vim.opt.guicursor = ''
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -14,7 +14,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 vim.opt.undofile = true
 
 vim.opt.hlsearch = true
@@ -24,9 +24,9 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 7
 
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = 'no'
 
-vim.opt.isfname:append("@-@")
+vim.opt.isfname:append('@-@')
 
 vim.opt.updatetime = 50
 

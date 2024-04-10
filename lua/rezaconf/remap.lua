@@ -1,60 +1,56 @@
-vim.g.mapleader = ","
-vim.keymap.set("n", "<leader>m", vim.cmd.Ex)
+vim.g.mapleader = ','
+vim.keymap.set('n', '<leader>m', vim.cmd.Ex)
 
-vim.keymap.set("n", "<C-o>", vim.cmd.NERDTreeToggle)
+vim.keymap.set('n', '<C-o>', vim.cmd.NERDTreeToggle)
 
 local options = { noremap = true }
-vim.keymap.set("i", "jk", "<Esc>", options)
-vim.keymap.set("i", "<C-c>", "<Esc>", options)
-vim.keymap.set("n", "<C-q>", ":wq<CR>", options)
-vim.keymap.set("n", "<C-h>", "<C-W>h", options)
-vim.keymap.set("n", "<C-l>", "<C-W>l", options)
+vim.keymap.set('i', 'jk', '<Esc>', options)
+vim.keymap.set('i', '<C-c>', '<Esc>', options)
+vim.keymap.set('n', '<C-q>', ':wq<CR>', options)
+vim.keymap.set('n', '<C-h>', '<C-W>h', options)
+vim.keymap.set('n', '<C-l>', '<C-W>l', options)
 
-vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set('x', '<leader>p', '\'_dP')
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
 
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set('n', '<leader>y', '\'+y')
+vim.keymap.set('n', '<leader>y', '\'+y')
+vim.keymap.set('v', '<leader>y', '\'+y')
+vim.keymap.set('n', '<leader>Y', '\'+Y')
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
 
-vim.keymap.set("n", "<leader>f", "<cmd>slient !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set('n', '<leader>f', '<cmd>slient !tmux neww tmux-sessionizer<CR>')
 
 -- greatest remaps ever
-vim.keymap.set("n", "<C-e>", "$")
-vim.keymap.set("n", "<C-a>", "^")
-vim.keymap.set("n", "<C-i>", "<C-w><C-f>")
+vim.keymap.set('n', '<C-e>', '$')
+vim.keymap.set('n', '<C-a>', '^')
+vim.keymap.set('n', '<C-i>', '<C-w><C-f>')
 
 -- terminal mode
-vim.keymap.set("n", "<C-z>", ":vnew term://tcsh<Enter>")
-vim.keymap.set("n", "<C-t>", "<C-z>", options)
-vim.keymap.set("t", "jk", [[<C-\><C-n>]], { noremap = true })
+vim.keymap.set('n', '<C-z>', ':vnew term://tcsh<Enter>')
+vim.keymap.set('n', '<C-t>', '<C-z>', options)
+vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { noremap = true })
 
 -- autocomplete from buffer
-vim.keymap.set("i", "<C-f>", "<C-x><C-n>")
+vim.keymap.set('i', '<C-f>', '<C-x><C-n>')
 
 
 -- copycat
-vim.keymap.set("n", "<C-c>", '"*y')
-vim.keymap.set("n", "<C-p>", '"*p')
+vim.keymap.set('n', '<C-c>', "'*y")
+vim.keymap.set('n', '<C-p>', "'*p")
 
 -- nerdtree refresh
-vim.keymap.set("n", "<leader>n", ":NERDTreeRefreshRoot<CR>")
+vim.keymap.set('n', '<leader>n', ':NERDTreeRefreshRoot<CR>')
 
 -- equalize
-vim.keymap.set("n", '<leader>=', "<C-w>=")
-
-
---local builtin = require('telescope.builtin')
---vim.keymap.set('n', '<C-f>', builtin.find_files, {})
+vim.keymap.set('n', '<leader>=', '<C-w>=')
 

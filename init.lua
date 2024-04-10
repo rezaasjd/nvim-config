@@ -1,2 +1,2 @@
-require("rezaconf")
+require('rezaconf')
 
