@@ -54,3 +54,12 @@ vim.keymap.set('n', '<leader>n', ':NERDTreeRefreshRoot<CR>')
 -- equalize
 vim.keymap.set('n', '<leader>=', '<C-w>=')
 
+-- turn off relative number
+vim.keymap.set('n', '<leader>crn', function()
+  vim.opt.relativenumber = false
+end)
+
+-- turn back on relative number
+vim.keymap.set('n', '<leader>trn', function()
+  vim.opt.relativenumber = true
+end)
