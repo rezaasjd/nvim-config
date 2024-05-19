@@ -45,7 +45,6 @@ return {
 
   'j-hui/fidget.nvim',
 
-  'preservim/nerdtree',
   'mg979/vim-visual-multi',
 
   'folke/tokyonight.nvim',
