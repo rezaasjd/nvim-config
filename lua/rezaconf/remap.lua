@@ -7,6 +7,8 @@ vim.keymap.set('i', '<C-c>', '<Esc>', options)
 vim.keymap.set('n', '<C-q>', ':wq<CR>', options)
 vim.keymap.set('n', '<C-h>', '<C-W>h', options)
 vim.keymap.set('n', '<C-l>', '<C-W>l', options)
+vim.keymap.set('n', '<C-j>', '<C-W>j', options)
+vim.keymap.set('n', '<C-k>', '<C-W>k', options)
 
 vim.keymap.set('n', '<C-o>', function()
   local oil = require("oil")
