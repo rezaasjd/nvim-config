@@ -31,6 +31,15 @@ autocmd({'BufWritePre'}, {
   end
 })
 
+autocmd({"FileType"}, {
+  pattern = "python" or "html",
+  callback = function()
+    vim.opt.tabstop = 4
+    vim.opt.softtabstop = 4
+    vim.opt.shiftwidth = 4
+  end
+})
+
 autocmd('LspAttach', {
   group = group,
   callback = function(e)

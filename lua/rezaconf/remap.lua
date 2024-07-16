@@ -15,8 +15,8 @@ vim.keymap.set('n', '<C-o>', function()
   oil.toggle_float()
 end)
 
-vim.keymap.set('v', 'K', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'J', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('x', '<leader>p', '\'_dP')
 
@@ -39,7 +39,6 @@ vim.keymap.set('n', '<leader>f', '<cmd>slient !tmux neww tmux-sessionizer<CR>')
 vim.keymap.set('n', '<C-e>', '$')
 vim.keymap.set('n', '<C-a>', '^')
 vim.keymap.set('n', '<C-i>', '<C-w><C-f>')
-vim.keymap.set('n', '<C-^>', '<C-b>')
 
 -- terminal mode
 vim.keymap.set('n', '<C-z>', ':vnew term://tcsh<Enter>')
