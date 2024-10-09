@@ -16,6 +16,7 @@ return {
     config = function()
       vim.keymap.set('n', '<leader>g', ":tab G<CR>");
       vim.keymap.set('n', '<leader>gp', ":Git push <CR>")
+      vim.keymap.set('n', '<leader>gl', ":Git log<CR>")
     end
   },
 
