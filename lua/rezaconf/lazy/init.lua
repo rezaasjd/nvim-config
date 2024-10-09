@@ -15,8 +15,8 @@ return {
     'tpope/vim-fugitive',
     config = function()
       vim.keymap.set('n', '<leader>g', ":tab G<CR>");
-      vim.keymap.set('n', '<leader>gp', ":Git push <CR>")
-      vim.keymap.set('n', '<leader>gl', ":Git log<CR>")
+      vim.keymap.set('n', '<leader>gp', ":tab Git push <CR>")
+      vim.keymap.set('n', '<leader>gl', ":tab Git log<CR>")
     end
   },
 
