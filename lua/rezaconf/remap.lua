@@ -75,3 +75,4 @@ local function confirm_and_delete_buffer()
   end
 end
 vim.keymap.set('n', '<leader>d', confirm_and_delete_buffer)
+vim.keymap.set('n', '<leader>c', 'gg V G <CR>')
