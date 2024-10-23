@@ -75,4 +75,15 @@ local function confirm_and_delete_buffer()
   end
 end
 vim.keymap.set('n', '<leader>d', confirm_and_delete_buffer)
-vim.keymap.set('n', '<leader>c', 'gg V G <CR>')
+
+-- Lua function to delete all lines in the current buffer
+local function clear_buffer()
+  local confirm = vim.fn.confirm("Clear buffer lines?", "&Yes\n&No", 2)
+  if confirm == 1 then
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, {})
+    vim.cmd('write')
+  end
+end
+
+-- Map <leader>c to the clear_buffer function
+vim.keymap.set('n', '<leader>c', clear_buffer, { noremap = true, silent = true })
