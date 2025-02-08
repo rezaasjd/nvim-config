@@ -1,4 +1,4 @@
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>m', vim.cmd.Ex)
 
 local options = { noremap = true }
@@ -25,7 +25,6 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
-vim.keymap.set('n', '<leader>y', '\'+y')
 vim.keymap.set('n', '<leader>y', '\'+y')
 vim.keymap.set('v', '<leader>y', '\'+y')
 vim.keymap.set('n', '<leader>Y', '\'+Y')
@@ -84,6 +83,11 @@ local function clear_buffer()
     vim.cmd('write')
   end
 end
-
--- Map <leader>c to the clear_buffer function
 vim.keymap.set('n', '<leader>c', clear_buffer, { noremap = true, silent = true })
+
+-- Create a user command called MoveBack that opens the alternate file in the current window
+vim.api.nvim_create_user_command('MoveBack', function()
+    vim.cmd("edit #")
+end, {})
+vim.keymap.set('n', '<leader>b', ':MoveBack<CR>')
+
