@@ -1,4 +1,4 @@
-vim.g.mapleader = ' '
+vim.g.mapleader = ','
 vim.keymap.set('n', '<leader>m', vim.cmd.Ex)
 
 local options = { noremap = true }
