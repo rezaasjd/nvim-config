@@ -18,6 +18,7 @@ return {
     end)
     require('telescope').setup({
       defaults = {
+        file_ignore_patterns = { "%.o$", "%.a$", "%.so$", "%.exe$", "%.dll$", "%.bin$", "%.dat$", "%.class$", "%.out$", "%.pdf$", "%.zip$", "%.tar$", "%.gz$" },
         mappings = {
           i = {
             ['<C-f>'] = actions.close,
@@ -43,8 +44,7 @@ return {
           disable_devicons = true,
           find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix', "--exclude", "*.o",
           "--exclude", "*.so", "--exclude", "*.bin", "--exclude", "*.exe", "--exclude", "*.pdf" ,
-          "--exclude", "*.xz", "--exclude", "*.zip", "--exclude", "*.tar", "--exclude", "*.gz" },
-          --find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+          "--exclude", "*.xz", "--exclude", "*.zip", "--exclude", "*.tar", "--exclude", "*.gz", "-j", "2"},
         },
       },
     })
