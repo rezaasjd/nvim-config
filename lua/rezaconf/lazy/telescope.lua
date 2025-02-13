@@ -42,8 +42,8 @@ return {
         find_files = {
           disable_devicons = true,
           find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix', "--exclude", "*.o",
-          "--exclude", "*.so", "--exclude", "*.bin", "--exclude", "*.exe", "--exclude", "*.pdf" },
-          "--exclude", "*.xz", "--exclude", "*.zip", "--exclude", "*.tar", "--exclude", "*.gz"},
+          "--exclude", "*.so", "--exclude", "*.bin", "--exclude", "*.exe", "--exclude", "*.pdf" ,
+          "--exclude", "*.xz", "--exclude", "*.zip", "--exclude", "*.tar", "--exclude", "*.gz" },
           --find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
         },
       },
