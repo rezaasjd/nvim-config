@@ -18,11 +18,11 @@ return {
         }
       },
       win = {
-        kinput = {
+        input = {
           keys = {
             ["<C-f>"] = {"close", mode = {"n", "i"}},
-          }
-        }
+          },
+        },
       }
     },
     notifier = { enabled = false },
@@ -69,6 +69,7 @@ return {
     { "<leader>man", function() Snacks.picker.man() end, desc = "Man Pages" },
     { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
     { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
+    { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     -- LSP
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
