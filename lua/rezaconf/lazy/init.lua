@@ -68,4 +68,9 @@ return {
       require("ibl").setup()
     end
   },
+
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
 }
