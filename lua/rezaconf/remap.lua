@@ -4,15 +4,14 @@ vim.keymap.set('n', '<leader>m', vim.cmd.Ex)
 local options = { noremap = true }
 vim.keymap.set('i', 'jk', '<Esc>', options)
 vim.keymap.set('i', '<C-c>', '<Esc>', options)
-vim.keymap.set('n', '<C-q>', ':wq<CR>', options)
 vim.keymap.set('n', '<C-h>', '<C-W>h', options)
 vim.keymap.set('n', '<C-l>', '<C-W>l', options)
 vim.keymap.set('n', '<C-j>', '<C-W>j', options)
 vim.keymap.set('n', '<C-k>', '<C-W>k', options)
 
 vim.keymap.set('n', '<C-o>', function()
-  local oil = require("oil")
-  oil.toggle_float()
+  local mini = require("mini.files")
+  mini.open()
 end)
 
 vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")

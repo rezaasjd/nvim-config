@@ -1,86 +1,52 @@
 return {
-  "folke/snacks.nvim",
-  priority = 1000,
-  lazy = false,
-  ---@type snacks.Config
-  opts = {
-    bigfile = { enabled = true },
-    dashboard = { enabled = false },
-    explorer = { enabled = false },
-    indent = { enabled = false },
-    input = { enabled = true },
-    picker = {
-      enabled = true,
-      layout = {
-        --preset = "bottom",
-        preview = {
-          enabled = true,
-        }
-      },
-      win = {
-        input = {
-          keys = {
-            ["<C-f>"] = {"close", mode = {"n", "i"}},
+  'nvim-telescope/telescope.nvim', tag = '0.1.6',
+  dependencies = {'nvim-lua/plenary.nvim'},
+  config = function()
+    local actions = require('telescope.actions')
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<C-f>', builtin.find_files, {})
+    vim.keymap.set('n', '<C-s>', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader>f', builtin.git_files, {})
+    vim.keymap.set('n', '<leader>ss', function()
+      local w = vim.fn.expand('<cword>')
+      builtin.grep_string({ search = w })
+    end)
+
+    vim.keymap.set('n', '<leader>ps', function()
+      local w = vim.fn.expand('<cWORD>')
+      builtin.grep_string({ search = w })
+    end)
+    require('telescope').setup({
+      defaults = {
+        file_ignore_patterns = { "%.o$", "%.a$", "%.so$", "%.exe$", "%.dll$", "%.bin$", "%.dat$", "%.class$", "%.out$", "%.pdf$", "%.zip$", "%.tar$", "%.gz$" },
+        mappings = {
+          i = {
+            ['<C-f>'] = actions.close,
+            ['<C-u>'] = false,
           },
+          n = {
+            ['<C-f>'] = actions.close,
+          }
         },
-      }
-    },
-    notifier = { enabled = false },
-    quickfile = { enabled = true },
-    scope = { enabled = false },
-    scroll = { enabled = false },
-    statuscolumn = { enabled = true },
-    words = { enabled = false },
-  },
-
-  keys = {
-    -- Top Pickers & Explorer
-    { "<C-c>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-    { "<C-s>", function() Snacks.picker.grep() end, desc = "Grep" },
-    { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
-    -- find
-    { "<C-f>", function() Snacks.picker.files() end, desc = "Find Files" },
-    { "<C-g>", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
-    { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
-    { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
-    -- git
-    { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
-    { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
-    { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
-    { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
-    { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
-    -- Grep
-    { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
-    { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
-    -- search
-    { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
-    { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
-    { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
-    { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
-    { "<leader>sc", function() Snacks.picker.command_history() end, desc = "Command History" },
-    { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
-    { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
-    { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
-    { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
-    { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
-    { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
-    { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
-    { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
-    { "<leader>man", function() Snacks.picker.man() end, desc = "Man Pages" },
-    { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
-    { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
-    { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
-    -- LSP
-    { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
-    { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
-    { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
-    { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
-    { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
-    { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
-    { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
-    -- Other
-    { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-    { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
-  },
-
+        layout_strategy = 'bottom_pane',
+      },
+      pickers = {
+        git_files = {
+          disable_devicons = true,
+        },
+        live_grep = {
+          disable_devicons = true,
+        },
+        grep_string = {
+          disable_devicons = true,
+        },
+        find_files = {
+          disable_devicons = true,
+          find_command = { 'fdfind', '--type', 'f', '--strip-cwd-prefix', "--exclude", "*.o",
+          "--exclude", "*.so", "--exclude", "*.bin", "--exclude", "*.exe", "--exclude", "*.pdf" ,
+          "--exclude", "*.xz", "--exclude", "*.zip", "--exclude", "*.tar", "--exclude", "*.gz", "-j", "2"},
+        },
+      },
+    })
+  end
 }
