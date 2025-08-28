@@ -10,8 +10,8 @@ vim.keymap.set('n', '<C-j>', '<C-W>j', options)
 vim.keymap.set('n', '<C-k>', '<C-W>k', options)
 
 vim.keymap.set('n', '<C-o>', function()
-  local mini = require("mini.files")
-  mini.open()
+  local oil = require("oil")
+  oil.toggle_float()
 end)
 
 vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
@@ -88,5 +88,4 @@ vim.keymap.set('n', '<leader>c', clear_buffer, { noremap = true, silent = true }
 vim.api.nvim_create_user_command('MoveBack', function()
     vim.cmd("edit #")
 end, {})
-vim.keymap.set('n', '<leader>b', ':MoveBack<CR>')
 
