@@ -42,7 +42,7 @@ return {
         },
         find_files = {
           disable_devicons = true,
-          find_command = { 'fdfind', '--type', 'f', '--strip-cwd-prefix', "--exclude", "*.o",
+          find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix', "--exclude", "*.o",
           "--exclude", "*.so", "--exclude", "*.bin", "--exclude", "*.exe", "--exclude", "*.pdf" ,
           "--exclude", "*.xz", "--exclude", "*.zip", "--exclude", "*.tar", "--exclude", "*.gz", "-j", "2"},
         },
