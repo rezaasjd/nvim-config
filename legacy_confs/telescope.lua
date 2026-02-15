@@ -1,5 +1,5 @@
 return {
-  'nvim-telescope/telescope.nvim', tag = '0.1.6',
+  'nvim-telescope/telescope.nvim',
   dependencies = {'nvim-lua/plenary.nvim'},
   config = function()
     local actions = require('telescope.actions')
@@ -18,6 +18,9 @@ return {
     end)
     require('telescope').setup({
       defaults = {
+        preview = {
+            treesitter = false,
+        },
         file_ignore_patterns = { "%.o$", "%.a$", "%.so$", "%.exe$", "%.dll$", "%.bin$", "%.dat$", "%.class$", "%.out$", "%.pdf$", "%.zip$", "%.tar$", "%.gz$" },
         mappings = {
           i = {

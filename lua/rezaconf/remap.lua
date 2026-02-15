@@ -9,7 +9,7 @@ vim.keymap.set('n', '<C-l>', '<C-W>l', options)
 vim.keymap.set('n', '<C-j>', '<C-W>j', options)
 vim.keymap.set('n', '<C-k>', '<C-W>k', options)
 
-vim.keymap.set('n', '<C-o>', function()
+vim.keymap.set('n', '<leader>o', function()
   local oil = require("oil")
   oil.toggle_float()
 end)
@@ -36,7 +36,6 @@ vim.keymap.set('n', '<leader>f', '<cmd>slient !tmux neww tmux-sessionizer<CR>')
 -- greatest remaps ever
 vim.keymap.set('n', '<C-e>', '$')
 vim.keymap.set('n', '<C-a>', '^')
-vim.keymap.set('n', '<C-i>', '<C-w><C-f>')
 
 -- terminal mode
 vim.keymap.set('n', '<C-z>', ':vnew term://tcsh<Enter>')
