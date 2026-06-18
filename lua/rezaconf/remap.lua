@@ -48,43 +48,32 @@ vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { noremap = true })
 
 -- copycat
 vim.keymap.set('n', '<leader>y', '"*y')
-vim.keymap.set('n', '<leader>p', '"*p')
+
+local function copy_hash()
+  local filename = vim.fn.expand("%:p")
+  if filename ~= '' then
+    local command = 'sha256sum ' .. filename
+    local hash_output = vim.fn.system(command)
+
+    -- SHA256sum outputs "hash  filename". We only want the hash.
+    local hash = hash_output:match("(%s*)([a-f0-9]+)")
+
+    if hash then
+      vim.fn.setreg('+', hash)
+      vim.notify('SHA256 copied: ' .. hash)
+    else
+      vim.notify('Failed to calculate SHA256 for: ' .. filename)
+    end
+  end
+end
+vim.keymap.set('n', '<leader>cu', copy_hash)
+
 
 -- equalize
 vim.keymap.set('n', '<leader>=', '<C-w>=')
 
--- turn off relative number
-vim.keymap.set('n', '<leader>crn', function()
-  vim.opt.relativenumber = false
-end)
-
--- turn back on relative number
-vim.keymap.set('n', '<leader>trn', function()
-  vim.opt.relativenumber = true
-end)
-
--- delete file
-local function confirm_and_delete_buffer()
-  local confirm = vim.fn.confirm("Delete buffer and file?", "&Yes\n&No", 2)
-  if confirm == 1 then
-    os.remove(vim.fn.expand "%")
-    vim.api.nvim_buf_delete(0, { force = true })
-  end
-end
-vim.keymap.set('n', '<leader>d', confirm_and_delete_buffer)
-
--- Lua function to delete all lines in the current buffer
-local function clear_buffer()
-  local confirm = vim.fn.confirm("Clear buffer lines?", "&Yes\n&No", 2)
-  if confirm == 1 then
-    vim.api.nvim_buf_set_lines(0, 0, -1, false, {})
-    vim.cmd('write')
-  end
-end
-vim.keymap.set('n', '<leader>c', clear_buffer, { noremap = true, silent = true })
 
 -- Create a user command called MoveBack that opens the alternate file in the current window
 vim.api.nvim_create_user_command('MoveBack', function()
-    vim.cmd("edit #")
+  vim.cmd("edit #")
 end, {})
-

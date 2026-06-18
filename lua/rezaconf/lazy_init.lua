@@ -13,21 +13,21 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('rezaconf.lazy', {
-    ui = {
-      icons = {
-        cmd = '⌘',
-        config = '🛠',
-        event = '📅',
-        ft = '📂',
-        init = '⚙',
-        keys = '🗝',
-        plugin = '🔌',
-        runtime = '💻',
-        require = '🌙',
-        source = '📄',
-        start = '🚀',
-        task = '📌',
-        lazy = '💤 ',
-      },
+  ui = {
+    icons = {
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
     },
+  },
 })

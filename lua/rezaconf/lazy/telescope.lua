@@ -1,6 +1,7 @@
 return {
-  'nvim-telescope/telescope.nvim', tag = '0.1.6',
-  dependencies = {'nvim-lua/plenary.nvim'},
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.6',
+  dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local actions = require('telescope.actions')
     local builtin = require('telescope.builtin')
@@ -18,7 +19,13 @@ return {
     end)
     require('telescope').setup({
       defaults = {
-        file_ignore_patterns = { "%.o$", "%.a$", "%.so$", "%.exe$", "%.dll$", "%.bin$", "%.dat$", "%.class$", "%.out$", "%.pdf$", "%.zip$", "%.tar$", "%.gz$" },
+        file_ignore_patterns = { "build/",
+          "build/CMakeFiles/",
+          "CMakeFiles/",
+          "CMakeCache%.txt",
+          "cmake_install%.cmake",
+          "%.cmake", "%.o$", "%.a$", "%.so$", "%.exe$", "%.dll$", "%.bin$", "%.dat$", "%.class$", "%.out$", "%.pdf$",
+          "%.zip$", "%.tar$", "%.gz$" },
         mappings = {
           i = {
             ['<C-f>'] = actions.close,
@@ -43,8 +50,8 @@ return {
         find_files = {
           disable_devicons = true,
           find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix', "--exclude", "*.o",
-          "--exclude", "*.so", "--exclude", "*.bin", "--exclude", "*.exe", "--exclude", "*.pdf" ,
-          "--exclude", "*.xz", "--exclude", "*.zip", "--exclude", "*.tar", "--exclude", "*.gz", "-j", "2"},
+            "--exclude", "*.so", "--exclude", "*.bin", "--exclude", "*.exe", "--exclude", "*.pdf",
+            "--exclude", "*.xz", "--exclude", "*.zip", "--exclude", "*.tar", "--exclude", "*.gz", "-j", "2" },
         },
       },
     })
