@@ -45,6 +45,11 @@ vim.keymap.set('t', 'jk', [[<C-\><C-n>]], { noremap = true })
 -- autocomplete from buffer
 --vim.keymap.set('i', '<C-f>', '<C-x><C-n>')
 
+vim.keymap.set('n', '<leader>cp', function()
+  local path = vim.fn.expand('%:p')
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path)
+end)
 
 -- copycat
 vim.keymap.set('n', '<leader>y', '"*y')
